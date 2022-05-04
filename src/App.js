@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import { Component } from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+import "d3plus-react";
+
+import Menu from "./pages/Menu";
+import ByYear from "./pages/ByYear";
+
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            <Route exact path="/" element={<Menu />} />
+            <Route exect path="/by-year" element={<ByYear />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
+    );
+  }
 }
 
-export default App;
