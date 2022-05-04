@@ -4,7 +4,11 @@
 
 .Chart{
   margin: auto;
-  width: 500pt;
-  height: 500pt;
+  width: 70%;
+  min-height: 500pt;
+}
+
+Link{
+  color: black;
 }
 

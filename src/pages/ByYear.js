@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { Link } from "react-router-dom";
 
@@ -7,46 +7,33 @@ import { LinePlot } from "d3plus-react";
 import "../App.css";
 
 const ByYear = () => {
+  const [data, setData] = useState(null);
+
+  const fetchData = async () => {
+    const response = await fetch("http://localhost/test.json");
+    const json = await response.json();
+    setData(json);
+  };
+
+  useEffect(()=>{fetchData();}, [data]);
+
+  if (data) {
+    return (
+      <div className="Chart">
+        <Link to="/">Home</Link>
+        <LinePlot
+          config={{
+            data: { data },
+            groupBy: "id",
+          }}
+        />
+      </div>
+    );
+  }
   return (
-    <div>
+    <div className="Chart">
       <Link to="/">Home</Link>
-      <LinePlot className="Chart"
-  config={{
-    data: [
-      {
-        id: 'urban',
-        x: 2014,
-        y: 7.5
-      },
-      {
-        id: 'urban',
-        x: 2015,
-        y: 7.4
-      },
-      {
-        id: 'urban',
-        x: 2016,
-        y: 7.6
-      },
-      {
-        id: 'rural',
-        x: 2014,
-        y: 7.0
-      },
-      {
-        id: 'rural',
-        x: 2015,
-        y: 7.1
-      },
-      {
-        id: 'rural',
-        x: 2016,
-        y: 6.9
-      }
-    ],
-    groupBy: 'id'
-  }}
- />
+      <h2>Loading</h2>
     </div>
   );
 };
