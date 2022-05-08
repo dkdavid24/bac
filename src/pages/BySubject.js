@@ -4,13 +4,13 @@ import { LinePlot } from "d3plus-react";
 
 import "../App.css";
 
-const ByYear = () => {
+const BySubject = () => {
     return (
       <div className="Chart">
         <Link to="/">Home</Link>
         <LinePlot
           config={{
-            data: 'http://localhost:8000/api/urban-rural-by-year',
+            data: 'http://localhost:8000/api/subject-pass-rate',
             groupBy: "id",
             baseline : 0,
           }}
@@ -19,4 +19,4 @@ const ByYear = () => {
     );
 };
 
-export default ByYear;
+export default BySubject;

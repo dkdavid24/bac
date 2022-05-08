@@ -8,7 +8,12 @@
   min-height: 500pt;
 }
 
-Link{
+a{
   color: black;
+}
+
+.Menu{
+  display: flex;
+  flex-flow: column nowrap;
 }
 
