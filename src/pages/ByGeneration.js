@@ -10,6 +10,7 @@ const ByGeneration = () => {
             data: 'http://localhost:8000/api/current-previous-gen',
             groupBy: "id",
             baseline : 0,
+            title: "Arányok generációk között",
           }}
         />
       </div>
