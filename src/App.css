@@ -17,3 +17,18 @@ a{
   flex-flow: column nowrap;
 }
 
+nav{
+  display: inline-block;
+  background-color: #202020;
+  width: 100%;
+  color: white;
+  padding: 10pt;
+  margin-bottom: 10pt;
+  text-align: left;
+}
+
+.menuLink{
+  display: block;
+  color: white;
+  text-decoration: none;
+}

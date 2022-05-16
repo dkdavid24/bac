@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import { LinePlot } from "d3plus-react";
 
@@ -9,12 +9,12 @@ const ByCounty = () => {
 
   return (
     <div className="Chart">
-      <Link to="/">Home</Link>
       <LinePlot
         config={{
           data: `http://localhost:8000/api/county/${county}`,
           groupBy: "id",
-          baseline: 0,
+          baseline: 1,
+          title: "Átlag",
         }}
       />
       <LinePlot
@@ -22,12 +22,7 @@ const ByCounty = () => {
           data: `http://localhost:8000/api/county/${county}/pass-rate`,
           groupBy: "id",
           baseline: 0,
-          y: "y",
-          yConfing: {
-            tickFormat: function(d) {
-              return `${parseFloat(d) * 100}%`;
-            }
-          },
+          title: "Átmenési arány",
         }}
       />
     </div>

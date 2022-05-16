@@ -1,4 +1,3 @@
-import logo from "./logo.svg";
 import "./App.css";
 
 import { Component } from "react";
@@ -11,12 +10,14 @@ import ByYear from "./pages/ByYear";
 import ByCounty from "./pages/ByCounty";
 import ByGeneration from "./pages/ByGeneration";
 import BySubject from "./pages/BySubject";
+import Header from "./components/Header";
 
 export default class App extends Component {
   render() {
     return (
       <div className="App">
         <BrowserRouter>
+          <Header />
           <Routes>
             <Route exact path="/" element={<Menu />} />
             <Route exact path="/by-year" element={<ByYear />} />
